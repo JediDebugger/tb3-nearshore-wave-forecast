@@ -1,0 +1,26 @@
+{
+  "full_s0": {
+    "passed": true,
+    "worst_error_over_tolerance": 0.29556784229438443,
+    "seconds": 4.58,
+    "failures": []
+  },
+  "full_s1": {
+    "passed": true,
+    "worst_error_over_tolerance": 0.2931030302472384,
+    "seconds": 3.53,
+    "failures": []
+  },
+  "full_s2": {
+    "passed": true,
+    "worst_error_over_tolerance": 0.3282595504752487,
+    "seconds": 3.58,
+    "failures": []
+  },
+  "full_s3": {
+    "passed": true,
+    "worst_error_over_tolerance": 0.8788015718717047,
+    "seconds": 4.19,
+    "failures": []
+  }
+}

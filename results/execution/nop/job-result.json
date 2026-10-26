@@ -1,0 +1,39 @@
+{
+    "id": "37c6abaa-0a4c-486c-8092-c985c73937d6",
+    "started_at": "2026-10-26T19:49:37.461821",
+    "updated_at": "2026-10-26T19:50:23.137936",
+    "finished_at": "2026-10-26T19:50:23.137936",
+    "n_total_trials": 1,
+    "stats": {
+        "n_completed_trials": 1,
+        "n_errored_trials": 0,
+        "n_running_trials": 0,
+        "n_pending_trials": 0,
+        "n_cancelled_trials": 0,
+        "n_retries": 0,
+        "evals": {
+            "nop__adhoc": {
+                "n_trials": 1,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "pass_at_k": {},
+                "reward_stats": {
+                    "reward": {
+                        "0.0": [
+                            "nearshore-wave-forecast__xwPbNab"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        },
+        "n_input_tokens": null,
+        "n_cache_tokens": null,
+        "n_output_tokens": null,
+        "cost_usd": null
+    }
+}

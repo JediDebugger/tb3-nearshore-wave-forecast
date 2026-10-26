@@ -1,0 +1,284 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-10-26T23:49:59.640281+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "9.1.1"
+        },
+        "summary": {
+            "tests": 21,
+            "passed": 15,
+            "failed": 6,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1793058597995,
+            "stop": 1793058599637
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_predictor_exists",
+                "status": "passed",
+                "duration": 4,
+                "start": 1793058598355,
+                "stop": 1793058598359,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_unseen_set_is_complete",
+                "status": "passed",
+                "duration": 11,
+                "start": 1793058598359,
+                "stop": 1793058598370,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_unseen_condition",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 563,
+                "start": 1793058598371,
+                "stop": 1793058598934,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "tags": [
+                    "parametrize::j::range(0, 5)::ids_<function <lambda> at 0xeb00ea972f20>"
+                ],
+                "trace": "j = 0\n\n    @pytest.mark.parametrize(\"j\", range(EXPECTED_CONDITIONS), ids=lambda j: f\"c{j}\")\n    def test_unseen_condition(j):\n        \"\"\"Every feature in every region of this condition, and over the site, is within tolerance.\"\"\"\n        r = result()\n        assert r[\"error\"] is None, r[\"error\"]\n        fe = r[\"rep\"][j]\n        worst = max(fe[rn][f][0] / fe[rn][f][1] for rn in fe for f in fe[rn])\n        bad = [f\"{rn}:{f}={e:.3g}>{thr}\" for rn in fe for f, (e, thr, ok) in fe[rn].items() if not ok]\n        print(f\"c{j}: worst err/tol = {worst:.2f}\")\n>       assert not bad, f\"c{j}: outside tolerance: {', '.join(bad)}\"\nE       AssertionError: c0: outside tolerance: R1_offshore:Hs=inf>0.1, R1_offshore:Dm=inf>4.0, R1_offshore:Qb=inf>0.06, R1_offshore:setup=inf>0.03, R1_offshore:Cs=inf>0.12, R1_offshore:u=inf>0.1, R1_offshore:Tm=inf>0.6, R2_south_bar:Hs=inf>0.1, R2_south_bar:Dm=inf>4.0, R2_south_bar:Qb=inf>0.06, R2_south_bar:setup=inf>0.03, R2_south_bar:Cs=inf>0.12, R2_south_bar:u=inf>0.1, R2_south_bar:Tm=inf>0.6, R3_rip:Hs=inf>0.1, R3_rip:Dm=inf>4.0, R3_rip:Qb=inf>0.06, R3_rip:setup=inf>0.03, R3_rip:Cs=inf>0.12, R3_rip:u=inf>0.15, R3_rip:Tm=inf>0.6, R4_central_bar:Hs=inf>0.1, R4_central_bar:Dm=inf>4.0, R4_central_bar:Qb=inf>0.06, R4_central_bar:setup=inf>0.03, R4_central_bar:Cs=inf>0.12, R4_central_bar:u=inf>0.1, R4_central_bar:Tm=inf>0.6, R5_seawall:Hs=inf>0.1, R5_seawall:Dm=inf>4.0, R5_seawall:Qb=inf>0.06, R5_seawall:setup=inf>0.03, R5_seawall:Cs=inf>0.12, R5_seawall:u=inf>0.1, R5_seawall:Tm=inf>0.6, R5_seawall:swmod=inf>0.04, overall:Hs=inf>0.07, overall:Cs=inf>0.08, overall:setup=inf>0.02, overall:Dm=inf>4.0, overall:Tm=inf>0.6, overall:Qb=inf>0.06, overall:u=inf>0.1\nE       assert not ['R1_offshore:Hs=inf>0.1', 'R1_offshore:Dm=inf>4.0', 'R1_offshore:Qb=inf>0.06', 'R1_offshore:setup=inf>0.03', 'R1_offshore:Cs=inf>0.12', 'R1_offshore:u=inf>0.1', ...]\n\ntests/test_outputs.py:204: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::test_unseen_condition",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 6,
+                "start": 1793058598935,
+                "stop": 1793058598941,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "tags": [
+                    "parametrize::j::range(0, 5)::ids_<function <lambda> at 0xeb00ea972f20>"
+                ],
+                "trace": "j = 1\n\n    @pytest.mark.parametrize(\"j\", range(EXPECTED_CONDITIONS), ids=lambda j: f\"c{j}\")\n    def test_unseen_condition(j):\n        \"\"\"Every feature in every region of this condition, and over the site, is within tolerance.\"\"\"\n        r = result()\n        assert r[\"error\"] is None, r[\"error\"]\n        fe = r[\"rep\"][j]\n        worst = max(fe[rn][f][0] / fe[rn][f][1] for rn in fe for f in fe[rn])\n        bad = [f\"{rn}:{f}={e:.3g}>{thr}\" for rn in fe for f, (e, thr, ok) in fe[rn].items() if not ok]\n        print(f\"c{j}: worst err/tol = {worst:.2f}\")\n>       assert not bad, f\"c{j}: outside tolerance: {', '.join(bad)}\"\nE       AssertionError: c1: outside tolerance: R1_offshore:Hs=inf>0.1, R1_offshore:Dm=inf>4.0, R1_offshore:Qb=inf>0.06, R1_offshore:setup=inf>0.03, R1_offshore:Cs=inf>0.12, R1_offshore:u=inf>0.1, R1_offshore:Tm=inf>0.6, R2_south_bar:Hs=inf>0.1, R2_south_bar:Dm=inf>4.0, R2_south_bar:Qb=inf>0.06, R2_south_bar:setup=inf>0.03, R2_south_bar:Cs=inf>0.12, R2_south_bar:u=inf>0.1, R2_south_bar:Tm=inf>0.6, R3_rip:Hs=inf>0.1, R3_rip:Dm=inf>4.0, R3_rip:Qb=inf>0.06, R3_rip:setup=inf>0.03, R3_rip:Cs=inf>0.12, R3_rip:u=inf>0.15, R3_rip:Tm=inf>0.6, R4_central_bar:Hs=inf>0.1, R4_central_bar:Dm=inf>4.0, R4_central_bar:Qb=inf>0.06, R4_central_bar:setup=inf>0.03, R4_central_bar:Cs=inf>0.12, R4_central_bar:u=inf>0.1, R4_central_bar:Tm=inf>0.6, R5_seawall:Hs=inf>0.1, R5_seawall:Dm=inf>4.0, R5_seawall:Qb=inf>0.06, R5_seawall:setup=inf>0.03, R5_seawall:Cs=inf>0.12, R5_seawall:u=inf>0.1, R5_seawall:Tm=inf>0.6, R5_seawall:swmod=inf>0.04, overall:Hs=inf>0.07, overall:Cs=inf>0.08, overall:setup=inf>0.02, overall:Dm=inf>4.0, overall:Tm=inf>0.6, overall:Qb=inf>0.06, overall:u=inf>0.1\nE       assert not ['R1_offshore:Hs=inf>0.1', 'R1_offshore:Dm=inf>4.0', 'R1_offshore:Qb=inf>0.06', 'R1_offshore:setup=inf>0.03', 'R1_offshore:Cs=inf>0.12', 'R1_offshore:u=inf>0.1', ...]\n\ntests/test_outputs.py:204: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::test_unseen_condition",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 8,
+                "start": 1793058598941,
+                "stop": 1793058598949,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "tags": [
+                    "parametrize::j::range(0, 5)::ids_<function <lambda> at 0xeb00ea972f20>"
+                ],
+                "trace": "j = 2\n\n    @pytest.mark.parametrize(\"j\", range(EXPECTED_CONDITIONS), ids=lambda j: f\"c{j}\")\n    def test_unseen_condition(j):\n        \"\"\"Every feature in every region of this condition, and over the site, is within tolerance.\"\"\"\n        r = result()\n        assert r[\"error\"] is None, r[\"error\"]\n        fe = r[\"rep\"][j]\n        worst = max(fe[rn][f][0] / fe[rn][f][1] for rn in fe for f in fe[rn])\n        bad = [f\"{rn}:{f}={e:.3g}>{thr}\" for rn in fe for f, (e, thr, ok) in fe[rn].items() if not ok]\n        print(f\"c{j}: worst err/tol = {worst:.2f}\")\n>       assert not bad, f\"c{j}: outside tolerance: {', '.join(bad)}\"\nE       AssertionError: c2: outside tolerance: R1_offshore:Hs=inf>0.1, R1_offshore:Dm=inf>4.0, R1_offshore:Qb=inf>0.06, R1_offshore:setup=inf>0.03, R1_offshore:Cs=inf>0.12, R1_offshore:u=inf>0.1, R1_offshore:Tm=inf>0.6, R2_south_bar:Hs=inf>0.1, R2_south_bar:Dm=inf>4.0, R2_south_bar:Qb=inf>0.06, R2_south_bar:setup=inf>0.03, R2_south_bar:Cs=inf>0.12, R2_south_bar:u=inf>0.1, R2_south_bar:Tm=inf>0.6, R3_rip:Hs=inf>0.1, R3_rip:Dm=inf>4.0, R3_rip:Qb=inf>0.06, R3_rip:setup=inf>0.03, R3_rip:Cs=inf>0.12, R3_rip:u=inf>0.15, R3_rip:Tm=inf>0.6, R4_central_bar:Hs=inf>0.1, R4_central_bar:Dm=inf>4.0, R4_central_bar:Qb=inf>0.06, R4_central_bar:setup=inf>0.03, R4_central_bar:Cs=inf>0.12, R4_central_bar:u=inf>0.1, R4_central_bar:Tm=inf>0.6, R5_seawall:Hs=inf>0.1, R5_seawall:Dm=inf>4.0, R5_seawall:Qb=inf>0.06, R5_seawall:setup=inf>0.03, R5_seawall:Cs=inf>0.12, R5_seawall:u=inf>0.1, R5_seawall:Tm=inf>0.6, R5_seawall:swmod=inf>0.04, overall:Hs=inf>0.07, overall:Cs=inf>0.08, overall:setup=inf>0.02, overall:Dm=inf>4.0, overall:Tm=inf>0.6, overall:Qb=inf>0.06, overall:u=inf>0.1\nE       assert not ['R1_offshore:Hs=inf>0.1', 'R1_offshore:Dm=inf>4.0', 'R1_offshore:Qb=inf>0.06', 'R1_offshore:setup=inf>0.03', 'R1_offshore:Cs=inf>0.12', 'R1_offshore:u=inf>0.1', ...]\n\ntests/test_outputs.py:204: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::test_unseen_condition",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 5,
+                "start": 1793058598950,
+                "stop": 1793058598955,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "tags": [
+                    "parametrize::j::range(0, 5)::ids_<function <lambda> at 0xeb00ea972f20>"
+                ],
+                "trace": "j = 3\n\n    @pytest.mark.parametrize(\"j\", range(EXPECTED_CONDITIONS), ids=lambda j: f\"c{j}\")\n    def test_unseen_condition(j):\n        \"\"\"Every feature in every region of this condition, and over the site, is within tolerance.\"\"\"\n        r = result()\n        assert r[\"error\"] is None, r[\"error\"]\n        fe = r[\"rep\"][j]\n        worst = max(fe[rn][f][0] / fe[rn][f][1] for rn in fe for f in fe[rn])\n        bad = [f\"{rn}:{f}={e:.3g}>{thr}\" for rn in fe for f, (e, thr, ok) in fe[rn].items() if not ok]\n        print(f\"c{j}: worst err/tol = {worst:.2f}\")\n>       assert not bad, f\"c{j}: outside tolerance: {', '.join(bad)}\"\nE       AssertionError: c3: outside tolerance: R1_offshore:Hs=inf>0.1, R1_offshore:Dm=inf>4.0, R1_offshore:Qb=inf>0.06, R1_offshore:setup=inf>0.03, R1_offshore:Cs=inf>0.12, R1_offshore:u=inf>0.1, R1_offshore:Tm=inf>0.6, R2_south_bar:Hs=inf>0.1, R2_south_bar:Dm=inf>4.0, R2_south_bar:Qb=inf>0.06, R2_south_bar:setup=inf>0.03, R2_south_bar:Cs=inf>0.12, R2_south_bar:u=inf>0.1, R2_south_bar:Tm=inf>0.6, R3_rip:Hs=inf>0.1, R3_rip:Dm=inf>4.0, R3_rip:Qb=inf>0.06, R3_rip:setup=inf>0.03, R3_rip:Cs=inf>0.12, R3_rip:u=inf>0.15, R3_rip:Tm=inf>0.6, R4_central_bar:Hs=inf>0.1, R4_central_bar:Dm=inf>4.0, R4_central_bar:Qb=inf>0.06, R4_central_bar:setup=inf>0.03, R4_central_bar:Cs=inf>0.12, R4_central_bar:u=inf>0.1, R4_central_bar:Tm=inf>0.6, R5_seawall:Hs=inf>0.1, R5_seawall:Dm=inf>4.0, R5_seawall:Qb=inf>0.06, R5_seawall:setup=inf>0.03, R5_seawall:Cs=inf>0.12, R5_seawall:u=inf>0.1, R5_seawall:Tm=inf>0.6, R5_seawall:swmod=inf>0.04, overall:Hs=inf>0.07, overall:Cs=inf>0.08, overall:setup=inf>0.02, overall:Dm=inf>4.0, overall:Tm=inf>0.6, overall:Qb=inf>0.06, overall:u=inf>0.1\nE       assert not ['R1_offshore:Hs=inf>0.1', 'R1_offshore:Dm=inf>4.0', 'R1_offshore:Qb=inf>0.06', 'R1_offshore:setup=inf>0.03', 'R1_offshore:Cs=inf>0.12', 'R1_offshore:u=inf>0.1', ...]\n\ntests/test_outputs.py:204: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::test_unseen_condition",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 4,
+                "start": 1793058598955,
+                "stop": 1793058598959,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "tags": [
+                    "parametrize::j::range(0, 5)::ids_<function <lambda> at 0xeb00ea972f20>"
+                ],
+                "trace": "j = 4\n\n    @pytest.mark.parametrize(\"j\", range(EXPECTED_CONDITIONS), ids=lambda j: f\"c{j}\")\n    def test_unseen_condition(j):\n        \"\"\"Every feature in every region of this condition, and over the site, is within tolerance.\"\"\"\n        r = result()\n        assert r[\"error\"] is None, r[\"error\"]\n        fe = r[\"rep\"][j]\n        worst = max(fe[rn][f][0] / fe[rn][f][1] for rn in fe for f in fe[rn])\n        bad = [f\"{rn}:{f}={e:.3g}>{thr}\" for rn in fe for f, (e, thr, ok) in fe[rn].items() if not ok]\n        print(f\"c{j}: worst err/tol = {worst:.2f}\")\n>       assert not bad, f\"c{j}: outside tolerance: {', '.join(bad)}\"\nE       AssertionError: c4: outside tolerance: R1_offshore:Hs=inf>0.1, R1_offshore:Dm=inf>4.0, R1_offshore:Qb=inf>0.06, R1_offshore:setup=inf>0.03, R1_offshore:Cs=inf>0.12, R1_offshore:u=inf>0.1, R1_offshore:Tm=inf>0.6, R2_south_bar:Hs=inf>0.1, R2_south_bar:Dm=inf>4.0, R2_south_bar:Qb=inf>0.06, R2_south_bar:setup=inf>0.03, R2_south_bar:Cs=inf>0.12, R2_south_bar:u=inf>0.1, R2_south_bar:Tm=inf>0.6, R3_rip:Hs=inf>0.1, R3_rip:Dm=inf>4.0, R3_rip:Qb=inf>0.06, R3_rip:setup=inf>0.03, R3_rip:Cs=inf>0.12, R3_rip:u=inf>0.15, R3_rip:Tm=inf>0.6, R4_central_bar:Hs=inf>0.1, R4_central_bar:Dm=inf>4.0, R4_central_bar:Qb=inf>0.06, R4_central_bar:setup=inf>0.03, R4_central_bar:Cs=inf>0.12, R4_central_bar:u=inf>0.1, R4_central_bar:Tm=inf>0.6, R5_seawall:Hs=inf>0.1, R5_seawall:Dm=inf>4.0, R5_seawall:Qb=inf>0.06, R5_seawall:setup=inf>0.03, R5_seawall:Cs=inf>0.12, R5_seawall:u=inf>0.1, R5_seawall:Tm=inf>0.6, R5_seawall:swmod=inf>0.04, overall:Hs=inf>0.07, overall:Cs=inf>0.08, overall:setup=inf>0.02, overall:Dm=inf>4.0, overall:Tm=inf>0.6, overall:Qb=inf>0.06, overall:u=inf>0.1\nE       assert not ['R1_offshore:Hs=inf>0.1', 'R1_offshore:Dm=inf>4.0', 'R1_offshore:Qb=inf>0.06', 'R1_offshore:setup=inf>0.03', 'R1_offshore:Cs=inf>0.12', 'R1_offshore:u=inf>0.1', ...]\n\ntests/test_outputs.py:204: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::test_all_conditions_pass",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 4,
+                "start": 1793058598960,
+                "stop": 1793058598964,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_all_conditions_pass():\n        \"\"\"The overall verdict: every region of every condition within tolerance.\"\"\"\n        r = result()\n        assert r[\"error\"] is None, r[\"error\"]\n        print(\"PASS\" if r[\"ok\"] else \"FAIL\", \"worst err/tol = %.2f\" % grade.margin(r[\"rep\"]))\n>       assert r[\"ok\"], \"FAIL: \" + \"; \".join(grade.failures(r[\"rep\"]))\nE       AssertionError: FAIL: c0:R1_offshore:Hs=inf>0.1; c0:R1_offshore:Dm=inf>4.0; c0:R1_offshore:Qb=inf>0.06; c0:R1_offshore:setup=inf>0.03; c0:R1_offshore:Cs=inf>0.12; c0:R1_offshore:u=inf>0.1; c0:R1_offshore:Tm=inf>0.6; c0:R2_south_bar:Hs=inf>0.1; c0:R2_south_bar:Dm=inf>4.0; c0:R2_south_bar:Qb=inf>0.06; c0:R2_south_bar:setup=inf>0.03; c0:R2_south_bar:Cs=inf>0.12; c0:R2_south_bar:u=inf>0.1; c0:R2_south_bar:Tm=inf>0.6; c0:R3_rip:Hs=inf>0.1; c0:R3_rip:Dm=inf>4.0; c0:R3_rip:Qb=inf>0.06; c0:R3_rip:setup=inf>0.03; c0:R3_rip:Cs=inf>0.12; c0:R3_rip:u=inf>0.15; c0:R3_rip:Tm=inf>0.6; c0:R4_central_bar:Hs=inf>0.1; c0:R4_central_bar:Dm=inf>4.0; c0:R4_central_bar:Qb=inf>0.06; c0:R4_central_bar:setup=inf>0.03; c0:R4_central_bar:Cs=inf>0.12; c0:R4_central_bar:u=inf>0.1; c0:R4_central_bar:Tm=inf>0.6; c0:R5_seawall:Hs=inf>0.1; c0:R5_seawall:Dm=inf>4.0; c0:R5_seawall:Qb=inf>0.06; c0:R5_seawall:setup=inf>0.03; c0:R5_seawall:Cs=inf>0.12; c0:R5_seawall:u=inf>0.1; c0:R5_seawall:Tm=inf>0.6; c0:R5_seawall:swmod=inf>0.04; c0:overall:Hs=inf>0.07; c0:overall:Cs=inf>0.08; c0:overall:setup=inf>0.02; c0:overall:Dm=inf>4.0; c0:overall:Tm=inf>0.6; c0:overall:Qb=inf>0.06; c0:overall:u=inf>0.1; c1:R1_offshore:Hs=inf>0.1; c1:R1_offshore:Dm=inf>4.0; c1:R1_offshore:Qb=inf>0.06; c1:R1_offshore:setup=inf>0.03; c1:R1_offshore:Cs=inf>0.12; c1:R1_offshore:u=inf>0.1; c1:R1_offshore:Tm=inf>0.6; c1:R2_south_bar:Hs=inf>0.1; c1:R2_south_bar:Dm=inf>4.0; c1:R2_south_bar:Qb=inf>0.06; c1:R2_south_bar:setup=inf>0.03; c1:R2_south_bar:Cs=inf>0.12; c1:R2_south_bar:u=inf>0.1; c1:R2_south_bar:Tm=inf>0.6; c1:R3_rip:Hs=inf>0.1; c1:R3_rip:Dm=inf>4.0; c1:R3_rip:Qb=inf>0.06; c1:R3_rip:setup=inf>0.03; c1:R3_rip:Cs=inf>0.12; c1:R3_rip:u=inf>0.15; c1:R3_rip:Tm=inf>0.6; c1:R4_central_bar:Hs=inf>0.1; c1:R4_central_bar:Dm=inf>4.0; c1:R4_central_bar:Qb=inf>0.06; c1:R4_central_bar:setup=inf>0.03; c1:R4_central_bar:Cs=inf>0.12; c1:R4_central_bar:u=inf>0.1; c1:R4_central_bar:Tm=inf>0.6; c1:R5_seawall:Hs=inf>0.1; c1:R5_seawall:Dm=inf>4.0; c1:R5_seawall:Qb=inf>0.06; c1:R5_seawall:setup=inf>0.03; c1:R5_seawall:Cs=inf>0.12; c1:R5_seawall:u=inf>0.1; c1:R5_seawall:Tm=inf>0.6; c1:R5_seawall:swmod=inf>0.04; c1:overall:Hs=inf>0.07; c1:overall:Cs=inf>0.08; c1:overall:setup=inf>0.02; c1:overall:Dm=inf>4.0; c1:overall:Tm=inf>0.6; c1:overall:Qb=inf>0.06; c1:overall:u=inf>0.1; c2:R1_offshore:Hs=inf>0.1; c2:R1_offshore:Dm=inf>4.0; c2:R1_offshore:Qb=inf>0.06; c2:R1_offshore:setup=inf>0.03; c2:R1_offshore:Cs=inf>0.12; c2:R1_offshore:u=inf>0.1; c2:R1_offshore:Tm=inf>0.6; c2:R2_south_bar:Hs=inf>0.1; c2:R2_south_bar:Dm=inf>4.0; c2:R2_south_bar:Qb=inf>0.06; c2:R2_south_bar:setup=inf>0.03; c2:R2_south_bar:Cs=inf>0.12; c2:R2_south_bar:u=inf>0.1; c2:R2_south_bar:Tm=inf>0.6; c2:R3_rip:Hs=inf>0.1; c2:R3_rip:Dm=inf>4.0; c2:R3_rip:Qb=inf>0.06; c2:R3_rip:setup=inf>0.03; c2:R3_rip:Cs=inf>0.12; c2:R3_rip:u=inf>0.15; c2:R3_rip:Tm=inf>0.6; c2:R4_central_bar:Hs=inf>0.1; c2:R4_central_bar:Dm=inf>4.0; c2:R4_central_bar:Qb=inf>0.06; c2:R4_central_bar:setup=inf>0.03; c2:R4_central_bar:Cs=inf>0.12; c2:R4_central_bar:u=inf>0.1; c2:R4_central_bar:Tm=inf>0.6; c2:R5_seawall:Hs=inf>0.1; c2:R5_seawall:Dm=inf>4.0; c2:R5_seawall:Qb=inf>0.06; c2:R5_seawall:setup=inf>0.03; c2:R5_seawall:Cs=inf>0.12; c2:R5_seawall:u=inf>0.1; c2:R5_seawall:Tm=inf>0.6; c2:R5_seawall:swmod=inf>0.04; c2:overall:Hs=inf>0.07; c2:overall:Cs=inf>0.08; c2:overall:setup=inf>0.02; c2:overall:Dm=inf>4.0; c2:overall:Tm=inf>0.6; c2:overall:Qb=inf>0.06; c2:overall:u=inf>0.1; c3:R1_offshore:Hs=inf>0.1; c3:R1_offshore:Dm=inf>4.0; c3:R1_offshore:Qb=inf>0.06; c3:R1_offshore:setup=inf>0.03; c3:R1_offshore:Cs=inf>0.12; c3:R1_offshore:u=inf>0.1; c3:R1_offshore:Tm=inf>0.6; c3:R2_south_bar:Hs=inf>0.1; c3:R2_south_bar:Dm=inf>4.0; c3:R2_south_bar:Qb=inf>0.06; c3:R2_south_bar:setup=inf>0.03; c3:R2_south_bar:Cs=inf>0.12; c3:R2_south_bar:u=inf>0.1; c3:R2_south_bar:Tm=inf>0.6; c3:R3_rip:Hs=inf>0.1; c3:R3_rip:Dm=inf>4.0; c3:R3_rip:Qb=inf>0.06; c3:R3_rip:setup=inf>0.03; c3:R3_rip:Cs=inf>0.12; c3:R3_rip:u=inf>0.15; c3:R3_rip:Tm=inf>0.6; c3:R4_central_bar:Hs=inf>0.1; c3:R4_central_bar:Dm=inf>4.0; c3:R4_central_bar:Qb=inf>0.06; c3:R4_central_bar:setup=inf>0.03; c3:R4_central_bar:Cs=inf>0.12; c3:R4_central_bar:u=inf>0.1; c3:R4_central_bar:Tm=inf>0.6; c3:R5_seawall:Hs=inf>0.1; c3:R5_seawall:Dm=inf>4.0; c3:R5_seawall:Qb=inf>0.06; c3:R5_seawall:setup=inf>0.03; c3:R5_seawall:Cs=inf>0.12; c3:R5_seawall:u=inf>0.1; c3:R5_seawall:Tm=inf>0.6; c3:R5_seawall:swmod=inf>0.04; c3:overall:Hs=inf>0.07; c3:overall:Cs=inf>0.08; c3:overall:setup=inf>0.02; c3:overall:Dm=inf>4.0; c3:overall:Tm=inf>0.6; c3:overall:Qb=inf>0.06; c3:overall:u=inf>0.1; c4:R1_offshore:Hs=inf>0.1; c4:R1_offshore:Dm=inf>4.0; c4:R1_offshore:Qb=inf>0.06; c4:R1_offshore:setup=inf>0.03; c4:R1_offshore:Cs=inf>0.12; c4:R1_offshore:u=inf>0.1; c4:R1_offshore:Tm=inf>0.6; c4:R2_south_bar:Hs=inf>0.1; c4:R2_south_bar:Dm=inf>4.0; c4:R2_south_bar:Qb=inf>0.06; c4:R2_south_bar:setup=inf>0.03; c4:R2_south_bar:Cs=inf>0.12; c4:R2_south_bar:u=inf>0.1; c4:R2_south_bar:Tm=inf>0.6; c4:R3_rip:Hs=inf>0.1; c4:R3_rip:Dm=inf>4.0; c4:R3_rip:Qb=inf>0.06; c4:R3_rip:setup=inf>0.03; c4:R3_rip:Cs=inf>0.12; c4:R3_rip:u=inf>0.15; c4:R3_rip:Tm=inf>0.6; c4:R4_central_bar:Hs=inf>0.1; c4:R4_central_bar:Dm=inf>4.0; c4:R4_central_bar:Qb=inf>0.06; c4:R4_central_bar:setup=inf>0.03; c4:R4_central_bar:Cs=inf>0.12; c4:R4_central_bar:u=inf>0.1; c4:R4_central_bar:Tm=inf>0.6; c4:R5_seawall:Hs=inf>0.1; c4:R5_seawall:Dm=inf>4.0; c4:R5_seawall:Qb=inf>0.06; c4:R5_seawall:setup=inf>0.03; c4:R5_seawall:Cs=inf>0.12; c4:R5_seawall:u=inf>0.1; c4:R5_seawall:Tm=inf>0.6; c4:R5_seawall:swmod=inf>0.04; c4:overall:Hs=inf>0.07; c4:overall:Cs=inf>0.08; c4:overall:setup=inf>0.02; c4:overall:Dm=inf>4.0; c4:overall:Tm=inf>0.6; c4:overall:Qb=inf>0.06; c4:overall:u=inf>0.1\nE       assert False\n\ntests/test_outputs.py:212: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_verifier_regressions.py::test_grader_rejects_incomplete_or_corrupt_wet_fields",
+                "status": "passed",
+                "duration": 81,
+                "start": 1793058598964,
+                "stop": 1793058599045,
+                "retries": 0,
+                "file_path": "test_verifier_regressions.py",
+                "tags": [
+                    "parametrize::fault::['none', 'offshore_nan', 'qb_nan', 'offshore_inf', 'region_gap', 'nearshore']"
+                ]
+            },
+            {
+                "name": "test_verifier_regressions.py::test_grader_rejects_incomplete_or_corrupt_wet_fields",
+                "status": "passed",
+                "duration": 82,
+                "start": 1793058599045,
+                "stop": 1793058599127,
+                "retries": 0,
+                "file_path": "test_verifier_regressions.py",
+                "tags": [
+                    "parametrize::fault::['none', 'offshore_nan', 'qb_nan', 'offshore_inf', 'region_gap', 'nearshore']"
+                ]
+            },
+            {
+                "name": "test_verifier_regressions.py::test_grader_rejects_incomplete_or_corrupt_wet_fields",
+                "status": "passed",
+                "duration": 105,
+                "start": 1793058599127,
+                "stop": 1793058599232,
+                "retries": 0,
+                "file_path": "test_verifier_regressions.py",
+                "tags": [
+                    "parametrize::fault::['none', 'offshore_nan', 'qb_nan', 'offshore_inf', 'region_gap', 'nearshore']"
+                ]
+            },
+            {
+                "name": "test_verifier_regressions.py::test_grader_rejects_incomplete_or_corrupt_wet_fields",
+                "status": "passed",
+                "duration": 109,
+                "start": 1793058599232,
+                "stop": 1793058599341,
+                "retries": 0,
+                "file_path": "test_verifier_regressions.py",
+                "tags": [
+                    "parametrize::fault::['none', 'offshore_nan', 'qb_nan', 'offshore_inf', 'region_gap', 'nearshore']"
+                ]
+            },
+            {
+                "name": "test_verifier_regressions.py::test_grader_rejects_incomplete_or_corrupt_wet_fields",
+                "status": "passed",
+                "duration": 85,
+                "start": 1793058599341,
+                "stop": 1793058599426,
+                "retries": 0,
+                "file_path": "test_verifier_regressions.py",
+                "tags": [
+                    "parametrize::fault::['none', 'offshore_nan', 'qb_nan', 'offshore_inf', 'region_gap', 'nearshore']"
+                ]
+            },
+            {
+                "name": "test_verifier_regressions.py::test_grader_rejects_incomplete_or_corrupt_wet_fields",
+                "status": "passed",
+                "duration": 83,
+                "start": 1793058599426,
+                "stop": 1793058599509,
+                "retries": 0,
+                "file_path": "test_verifier_regressions.py",
+                "tags": [
+                    "parametrize::fault::['none', 'offshore_nan', 'qb_nan', 'offshore_inf', 'region_gap', 'nearshore']"
+                ]
+            },
+            {
+                "name": "test_verifier_regressions.py::test_shoreline_tolerance_cannot_repair_interior_holes",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793058599509,
+                "stop": 1793058599510,
+                "retries": 0,
+                "file_path": "test_verifier_regressions.py",
+                "tags": [
+                    "parametrize::missing, replacement, filled::[([4], nan, True), ([3, 4], nan, True), ([2, 3, 4], nan, False), ([2], nan, False), ([4], inf, False)]"
+                ]
+            },
+            {
+                "name": "test_verifier_regressions.py::test_shoreline_tolerance_cannot_repair_interior_holes",
+                "status": "passed",
+                "duration": 2,
+                "start": 1793058599510,
+                "stop": 1793058599512,
+                "retries": 0,
+                "file_path": "test_verifier_regressions.py",
+                "tags": [
+                    "parametrize::missing, replacement, filled::[([4], nan, True), ([3, 4], nan, True), ([2, 3, 4], nan, False), ([2], nan, False), ([4], inf, False)]"
+                ]
+            },
+            {
+                "name": "test_verifier_regressions.py::test_shoreline_tolerance_cannot_repair_interior_holes",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793058599512,
+                "stop": 1793058599513,
+                "retries": 0,
+                "file_path": "test_verifier_regressions.py",
+                "tags": [
+                    "parametrize::missing, replacement, filled::[([4], nan, True), ([3, 4], nan, True), ([2, 3, 4], nan, False), ([2], nan, False), ([4], inf, False)]"
+                ]
+            },
+            {
+                "name": "test_verifier_regressions.py::test_shoreline_tolerance_cannot_repair_interior_holes",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793058599513,
+                "stop": 1793058599514,
+                "retries": 0,
+                "file_path": "test_verifier_regressions.py",
+                "tags": [
+                    "parametrize::missing, replacement, filled::[([4], nan, True), ([3, 4], nan, True), ([2, 3, 4], nan, False), ([2], nan, False), ([4], inf, False)]"
+                ]
+            },
+            {
+                "name": "test_verifier_regressions.py::test_shoreline_tolerance_cannot_repair_interior_holes",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793058599514,
+                "stop": 1793058599515,
+                "retries": 0,
+                "file_path": "test_verifier_regressions.py",
+                "tags": [
+                    "parametrize::missing, replacement, filled::[([4], nan, True), ([3, 4], nan, True), ([2, 3, 4], nan, False), ([2], nan, False), ([4], inf, False)]"
+                ]
+            },
+            {
+                "name": "test_verifier_regressions.py::test_runtime_contract_uses_batches_of_at_most_three",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793058599515,
+                "stop": 1793058599516,
+                "retries": 0,
+                "file_path": "test_verifier_regressions.py"
+            },
+            {
+                "name": "test_verifier_regressions.py::test_runtime_watchdog_kills_an_overdue_predictor",
+                "status": "passed",
+                "duration": 120,
+                "start": 1793058599517,
+                "stop": 1793058599637,
+                "retries": 0,
+                "file_path": "test_verifier_regressions.py"
+            }
+        ]
+    }
+}

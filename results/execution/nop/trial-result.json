@@ -1,0 +1,116 @@
+{
+    "id": "608c8eaa-8ee7-49b2-b1db-8a71de02f6b0",
+    "task_name": "terminal-bench/nearshore-wave-forecast",
+    "trial_name": "nearshore-wave-forecast__xwPbNab",
+    "trial_uri": "file:///Users/dev/tb3-work/harbor-jobs/ocean-repair/fix-20261026_194841/nop/nearshore-wave-forecast__xwPbNab",
+    "task_id": {
+        "path": "tasks/nearshore-wave-forecast"
+    },
+    "source": null,
+    "task_checksum": "7a7c4fe4eeeddc67d35d4f8c84e129587d9ac9bd0f2f2ae9500e81183a76c5d6",
+    "config": {
+        "task": {
+            "path": "tasks/nearshore-wave-forecast",
+            "git_url": null,
+            "git_commit_id": null,
+            "name": null,
+            "ref": null,
+            "overwrite": false,
+            "download_dir": null,
+            "source": null
+        },
+        "trial_name": "nearshore-wave-forecast__xwPbNab",
+        "trials_dir": "/Users/dev/tb3-work/harbor-jobs/ocean-repair/fix-20261026_194841/nop",
+        "install_only": false,
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": null,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "nop",
+            "import_path": null,
+            "model_name": null,
+            "n_concurrent": null,
+            "concurrency_group": null,
+            "skills": [],
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "resume_trajectory": false,
+            "load_trajectory": null,
+            "extra_allowed_hosts": [],
+            "kwargs": {},
+            "mcp_servers": []
+        },
+        "user_agent": null,
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": false,
+            "delete": true,
+            "stream": false,
+            "cpu_enforcement_policy": "auto",
+            "memory_enforcement_policy": "auto",
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "override_tpu": null,
+            "mounts": null,
+            "extra_docker_compose": [],
+            "kwargs": {},
+            "extra_allowed_hosts": []
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "artifacts": [],
+        "extra_instruction_paths": [],
+        "extra_instructions": [],
+        "job_id": "37c6abaa-0a4c-486c-8092-c985c73937d6",
+        "source_trial": null
+    },
+    "agent_info": {
+        "name": "nop",
+        "version": "1.0.0",
+        "model_info": null
+    },
+    "agent_result": {
+        "n_input_tokens": null,
+        "n_cache_tokens": null,
+        "n_output_tokens": null,
+        "cost_usd": null,
+        "model_usage": null,
+        "rollout_details": null,
+        "metadata": null
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 0.0
+        }
+    },
+    "verifier_environment_mode": "separate",
+    "exception_info": null,
+    "started_at": "2026-10-26T23:49:37.555063Z",
+    "finished_at": "2026-10-26T23:50:23.125953Z",
+    "environment_setup": {
+        "started_at": "2026-10-26T23:49:37.603258Z",
+        "finished_at": "2026-10-26T23:49:43.789680Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-10-26T23:49:43.789902Z",
+        "finished_at": "2026-10-26T23:49:43.790044Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-10-26T23:49:43.790330Z",
+        "finished_at": "2026-10-26T23:49:43.791205Z"
+    },
+    "verifier": {
+        "started_at": "2026-10-26T23:49:57.260180Z",
+        "finished_at": "2026-10-26T23:50:23.125863Z"
+    },
+    "step_results": null
+}

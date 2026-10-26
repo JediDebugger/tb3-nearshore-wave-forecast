@@ -1,0 +1,266 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-10-26T23:49:10.137534+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "9.1.1"
+        },
+        "summary": {
+            "tests": 21,
+            "passed": 21,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1793058541174,
+            "stop": 1793058550135
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_predictor_exists",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793058541418,
+                "stop": 1793058541419,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_unseen_set_is_complete",
+                "status": "passed",
+                "duration": 6,
+                "start": 1793058541419,
+                "stop": 1793058541425,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_unseen_condition",
+                "status": "passed",
+                "duration": 7536,
+                "start": 1793058541425,
+                "stop": 1793058548961,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "tags": [
+                    "parametrize::j::range(0, 5)::ids_<function <lambda> at 0xf84f59692f20>"
+                ]
+            },
+            {
+                "name": "test_outputs.py::test_unseen_condition",
+                "status": "passed",
+                "duration": 4,
+                "start": 1793058548963,
+                "stop": 1793058548967,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "tags": [
+                    "parametrize::j::range(0, 5)::ids_<function <lambda> at 0xf84f59692f20>"
+                ]
+            },
+            {
+                "name": "test_outputs.py::test_unseen_condition",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793058548967,
+                "stop": 1793058548968,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "tags": [
+                    "parametrize::j::range(0, 5)::ids_<function <lambda> at 0xf84f59692f20>"
+                ]
+            },
+            {
+                "name": "test_outputs.py::test_unseen_condition",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793058548969,
+                "stop": 1793058548970,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "tags": [
+                    "parametrize::j::range(0, 5)::ids_<function <lambda> at 0xf84f59692f20>"
+                ]
+            },
+            {
+                "name": "test_outputs.py::test_unseen_condition",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793058548970,
+                "stop": 1793058548971,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "tags": [
+                    "parametrize::j::range(0, 5)::ids_<function <lambda> at 0xf84f59692f20>"
+                ]
+            },
+            {
+                "name": "test_outputs.py::test_all_conditions_pass",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793058548971,
+                "stop": 1793058548972,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_verifier_regressions.py::test_grader_rejects_incomplete_or_corrupt_wet_fields",
+                "status": "passed",
+                "duration": 155,
+                "start": 1793058548974,
+                "stop": 1793058549129,
+                "retries": 0,
+                "file_path": "test_verifier_regressions.py",
+                "tags": [
+                    "parametrize::fault::['none', 'offshore_nan', 'qb_nan', 'offshore_inf', 'region_gap', 'nearshore']"
+                ]
+            },
+            {
+                "name": "test_verifier_regressions.py::test_grader_rejects_incomplete_or_corrupt_wet_fields",
+                "status": "passed",
+                "duration": 205,
+                "start": 1793058549129,
+                "stop": 1793058549334,
+                "retries": 0,
+                "file_path": "test_verifier_regressions.py",
+                "tags": [
+                    "parametrize::fault::['none', 'offshore_nan', 'qb_nan', 'offshore_inf', 'region_gap', 'nearshore']"
+                ]
+            },
+            {
+                "name": "test_verifier_regressions.py::test_grader_rejects_incomplete_or_corrupt_wet_fields",
+                "status": "passed",
+                "duration": 218,
+                "start": 1793058549334,
+                "stop": 1793058549552,
+                "retries": 0,
+                "file_path": "test_verifier_regressions.py",
+                "tags": [
+                    "parametrize::fault::['none', 'offshore_nan', 'qb_nan', 'offshore_inf', 'region_gap', 'nearshore']"
+                ]
+            },
+            {
+                "name": "test_verifier_regressions.py::test_grader_rejects_incomplete_or_corrupt_wet_fields",
+                "status": "passed",
+                "duration": 191,
+                "start": 1793058549553,
+                "stop": 1793058549744,
+                "retries": 0,
+                "file_path": "test_verifier_regressions.py",
+                "tags": [
+                    "parametrize::fault::['none', 'offshore_nan', 'qb_nan', 'offshore_inf', 'region_gap', 'nearshore']"
+                ]
+            },
+            {
+                "name": "test_verifier_regressions.py::test_grader_rejects_incomplete_or_corrupt_wet_fields",
+                "status": "passed",
+                "duration": 98,
+                "start": 1793058549744,
+                "stop": 1793058549842,
+                "retries": 0,
+                "file_path": "test_verifier_regressions.py",
+                "tags": [
+                    "parametrize::fault::['none', 'offshore_nan', 'qb_nan', 'offshore_inf', 'region_gap', 'nearshore']"
+                ]
+            },
+            {
+                "name": "test_verifier_regressions.py::test_grader_rejects_incomplete_or_corrupt_wet_fields",
+                "status": "passed",
+                "duration": 136,
+                "start": 1793058549843,
+                "stop": 1793058549979,
+                "retries": 0,
+                "file_path": "test_verifier_regressions.py",
+                "tags": [
+                    "parametrize::fault::['none', 'offshore_nan', 'qb_nan', 'offshore_inf', 'region_gap', 'nearshore']"
+                ]
+            },
+            {
+                "name": "test_verifier_regressions.py::test_shoreline_tolerance_cannot_repair_interior_holes",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793058549979,
+                "stop": 1793058549980,
+                "retries": 0,
+                "file_path": "test_verifier_regressions.py",
+                "tags": [
+                    "parametrize::missing, replacement, filled::[([4], nan, True), ([3, 4], nan, True), ([2, 3, 4], nan, False), ([2], nan, False), ([4], inf, False)]"
+                ]
+            },
+            {
+                "name": "test_verifier_regressions.py::test_shoreline_tolerance_cannot_repair_interior_holes",
+                "status": "passed",
+                "duration": 3,
+                "start": 1793058549980,
+                "stop": 1793058549983,
+                "retries": 0,
+                "file_path": "test_verifier_regressions.py",
+                "tags": [
+                    "parametrize::missing, replacement, filled::[([4], nan, True), ([3, 4], nan, True), ([2, 3, 4], nan, False), ([2], nan, False), ([4], inf, False)]"
+                ]
+            },
+            {
+                "name": "test_verifier_regressions.py::test_shoreline_tolerance_cannot_repair_interior_holes",
+                "status": "passed",
+                "duration": 3,
+                "start": 1793058549984,
+                "stop": 1793058549987,
+                "retries": 0,
+                "file_path": "test_verifier_regressions.py",
+                "tags": [
+                    "parametrize::missing, replacement, filled::[([4], nan, True), ([3, 4], nan, True), ([2, 3, 4], nan, False), ([2], nan, False), ([4], inf, False)]"
+                ]
+            },
+            {
+                "name": "test_verifier_regressions.py::test_shoreline_tolerance_cannot_repair_interior_holes",
+                "status": "passed",
+                "duration": 2,
+                "start": 1793058549987,
+                "stop": 1793058549989,
+                "retries": 0,
+                "file_path": "test_verifier_regressions.py",
+                "tags": [
+                    "parametrize::missing, replacement, filled::[([4], nan, True), ([3, 4], nan, True), ([2, 3, 4], nan, False), ([2], nan, False), ([4], inf, False)]"
+                ]
+            },
+            {
+                "name": "test_verifier_regressions.py::test_shoreline_tolerance_cannot_repair_interior_holes",
+                "status": "passed",
+                "duration": 1,
+                "start": 1793058549990,
+                "stop": 1793058549991,
+                "retries": 0,
+                "file_path": "test_verifier_regressions.py",
+                "tags": [
+                    "parametrize::missing, replacement, filled::[([4], nan, True), ([3, 4], nan, True), ([2, 3, 4], nan, False), ([2], nan, False), ([4], inf, False)]"
+                ]
+            },
+            {
+                "name": "test_verifier_regressions.py::test_runtime_contract_uses_batches_of_at_most_three",
+                "status": "passed",
+                "duration": 4,
+                "start": 1793058549991,
+                "stop": 1793058549995,
+                "retries": 0,
+                "file_path": "test_verifier_regressions.py"
+            },
+            {
+                "name": "test_verifier_regressions.py::test_runtime_watchdog_kills_an_overdue_predictor",
+                "status": "passed",
+                "duration": 139,
+                "start": 1793058549995,
+                "stop": 1793058550134,
+                "retries": 0,
+                "file_path": "test_verifier_regressions.py"
+            }
+        ]
+    }
+}

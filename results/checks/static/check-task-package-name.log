@@ -1,0 +1,3 @@
+Checking tasks/nearshore-wave-forecast/task.toml...
+PASS tasks/nearshore-wave-forecast
+All task.toml files have the expected [task] name

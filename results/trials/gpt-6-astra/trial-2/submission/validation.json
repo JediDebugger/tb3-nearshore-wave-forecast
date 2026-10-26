@@ -1,0 +1,38 @@
+{
+  "runtime_seconds_three_cases": 1.875150166,
+  "output_shape": [
+    61,
+    101
+  ],
+  "output_dtype": "float32",
+  "dependencies": [
+    "numpy",
+    "scipy"
+  ],
+  "training_hours": 24,
+  "observed_wet_dry_mask_mismatches": 0,
+  "raw_observation_rmse": {
+    "Hs": 0.046580810099840164,
+    "Tm": 0.2498532384634018,
+    "Dm": 3.0460026264190674,
+    "Qb": 0.01400673296302557,
+    "mwl": 0.015061955899000168,
+    "Cs": 0.02759135141968727,
+    "u": 0.040048617869615555
+  },
+  "held_out_coefficient_fit_hours": [
+    6,
+    12,
+    17,
+    22
+  ],
+  "held_out_alongshore_band_rmse": {
+    "Hs": 0.018550632692021344,
+    "Tm": 0.060332339553989235,
+    "Dm": 0.7995920582566229,
+    "Cs": 0.013034725864801101
+  },
+  "robustness_cases": 14,
+  "robustness_scope": "Numerical and physical-range checks, not accuracy tests against unseen truth. Includes larger seas, long swells, new directions, higher/lower tides, zero energy, single-bin spectra, and wrapped directions.",
+  "limitations": "The unseen extreme-condition truth and grading tolerances are unavailable; all-region tolerance compliance cannot be guaranteed."
+}

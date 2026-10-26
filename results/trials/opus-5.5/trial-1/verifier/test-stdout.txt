@@ -1,0 +1,168 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.15, pytest-9.1.1, pluggy-1.7.0
+cachedir: /tmp/pytest-cache
+rootdir: /tests
+plugins: json-ctrf-0.5.2
+collected 21 items
+
+tests/test_outputs.py ..FFFFFF                                           [ 38%]
+tests/test_verifier_regressions.py .............                         [100%]
+
+=================================== FAILURES ===================================
+__________________________ test_unseen_condition[c0] ___________________________
+
+j = 0
+
+    @pytest.mark.parametrize("j", range(EXPECTED_CONDITIONS), ids=lambda j: f"c{j}")
+    def test_unseen_condition(j):
+        """Every feature in every region of this condition, and over the site, is within tolerance."""
+        r = result()
+        assert r["error"] is None, r["error"]
+        fe = r["rep"][j]
+        worst = max(fe[rn][f][0] / fe[rn][f][1] for rn in fe for f in fe[rn])
+        bad = [f"{rn}:{f}={e:.3g}>{thr}" for rn in fe for f, (e, thr, ok) in fe[rn].items() if not ok]
+        print(f"c{j}: worst err/tol = {worst:.2f}")
+>       assert not bad, f"c{j}: outside tolerance: {', '.join(bad)}"
+E       AssertionError: c0: outside tolerance: R3_rip:Dm=6.8>4.0, R3_rip:Qb=0.0713>0.06, R5_seawall:swmod=0.0966>0.04
+E       assert not ['R3_rip:Dm=6.8>4.0', 'R3_rip:Qb=0.0713>0.06', 'R5_seawall:swmod=0.0966>0.04']
+
+tests/test_outputs.py:204: AssertionError
+----------------------------- Captured stdout call -----------------------------
+cases [0, 1, 2]: 52.20 s
+cases [3, 4]: 36.79 s
+FAIL worst err/tol = 2.63
+   c0:R3_rip:Dm=6.8>4.0
+   c0:R3_rip:Qb=0.0713>0.06
+   c0:R5_seawall:swmod=0.0966>0.04
+   c1:R3_rip:Dm=4.13>4.0
+   c1:R5_seawall:swmod=0.105>0.04
+   c2:R3_rip:Dm=4.99>4.0
+   c2:R5_seawall:swmod=0.1>0.04
+   c3:R2_south_bar:Qb=0.0745>0.06
+   c3:R3_rip:Dm=8.03>4.0
+   c3:R3_rip:Qb=0.126>0.06
+   c3:R4_central_bar:Qb=0.0749>0.06
+   c3:R5_seawall:swmod=0.0626>0.04
+   c4:R3_rip:Dm=7.43>4.0
+   c4:R3_rip:Qb=0.0989>0.06
+   c4:R5_seawall:swmod=0.0684>0.04
+c0: worst err/tol = 2.41
+__________________________ test_unseen_condition[c1] ___________________________
+
+j = 1
+
+    @pytest.mark.parametrize("j", range(EXPECTED_CONDITIONS), ids=lambda j: f"c{j}")
+    def test_unseen_condition(j):
+        """Every feature in every region of this condition, and over the site, is within tolerance."""
+        r = result()
+        assert r["error"] is None, r["error"]
+        fe = r["rep"][j]
+        worst = max(fe[rn][f][0] / fe[rn][f][1] for rn in fe for f in fe[rn])
+        bad = [f"{rn}:{f}={e:.3g}>{thr}" for rn in fe for f, (e, thr, ok) in fe[rn].items() if not ok]
+        print(f"c{j}: worst err/tol = {worst:.2f}")
+>       assert not bad, f"c{j}: outside tolerance: {', '.join(bad)}"
+E       AssertionError: c1: outside tolerance: R3_rip:Dm=4.13>4.0, R5_seawall:swmod=0.105>0.04
+E       assert not ['R3_rip:Dm=4.13>4.0', 'R5_seawall:swmod=0.105>0.04']
+
+tests/test_outputs.py:204: AssertionError
+----------------------------- Captured stdout call -----------------------------
+c1: worst err/tol = 2.63
+__________________________ test_unseen_condition[c2] ___________________________
+
+j = 2
+
+    @pytest.mark.parametrize("j", range(EXPECTED_CONDITIONS), ids=lambda j: f"c{j}")
+    def test_unseen_condition(j):
+        """Every feature in every region of this condition, and over the site, is within tolerance."""
+        r = result()
+        assert r["error"] is None, r["error"]
+        fe = r["rep"][j]
+        worst = max(fe[rn][f][0] / fe[rn][f][1] for rn in fe for f in fe[rn])
+        bad = [f"{rn}:{f}={e:.3g}>{thr}" for rn in fe for f, (e, thr, ok) in fe[rn].items() if not ok]
+        print(f"c{j}: worst err/tol = {worst:.2f}")
+>       assert not bad, f"c{j}: outside tolerance: {', '.join(bad)}"
+E       AssertionError: c2: outside tolerance: R3_rip:Dm=4.99>4.0, R5_seawall:swmod=0.1>0.04
+E       assert not ['R3_rip:Dm=4.99>4.0', 'R5_seawall:swmod=0.1>0.04']
+
+tests/test_outputs.py:204: AssertionError
+----------------------------- Captured stdout call -----------------------------
+c2: worst err/tol = 2.50
+__________________________ test_unseen_condition[c3] ___________________________
+
+j = 3
+
+    @pytest.mark.parametrize("j", range(EXPECTED_CONDITIONS), ids=lambda j: f"c{j}")
+    def test_unseen_condition(j):
+        """Every feature in every region of this condition, and over the site, is within tolerance."""
+        r = result()
+        assert r["error"] is None, r["error"]
+        fe = r["rep"][j]
+        worst = max(fe[rn][f][0] / fe[rn][f][1] for rn in fe for f in fe[rn])
+        bad = [f"{rn}:{f}={e:.3g}>{thr}" for rn in fe for f, (e, thr, ok) in fe[rn].items() if not ok]
+        print(f"c{j}: worst err/tol = {worst:.2f}")
+>       assert not bad, f"c{j}: outside tolerance: {', '.join(bad)}"
+E       AssertionError: c3: outside tolerance: R2_south_bar:Qb=0.0745>0.06, R3_rip:Dm=8.03>4.0, R3_rip:Qb=0.126>0.06, R4_central_bar:Qb=0.0749>0.06, R5_seawall:swmod=0.0626>0.04
+E       assert not ['R2_south_bar:Qb=0.0745>0.06', 'R3_rip:Dm=8.03>4.0', 'R3_rip:Qb=0.126>0.06', 'R4_central_bar:Qb=0.0749>0.06', 'R5_seawall:swmod=0.0626>0.04']
+
+tests/test_outputs.py:204: AssertionError
+----------------------------- Captured stdout call -----------------------------
+c3: worst err/tol = 2.11
+__________________________ test_unseen_condition[c4] ___________________________
+
+j = 4
+
+    @pytest.mark.parametrize("j", range(EXPECTED_CONDITIONS), ids=lambda j: f"c{j}")
+    def test_unseen_condition(j):
+        """Every feature in every region of this condition, and over the site, is within tolerance."""
+        r = result()
+        assert r["error"] is None, r["error"]
+        fe = r["rep"][j]
+        worst = max(fe[rn][f][0] / fe[rn][f][1] for rn in fe for f in fe[rn])
+        bad = [f"{rn}:{f}={e:.3g}>{thr}" for rn in fe for f, (e, thr, ok) in fe[rn].items() if not ok]
+        print(f"c{j}: worst err/tol = {worst:.2f}")
+>       assert not bad, f"c{j}: outside tolerance: {', '.join(bad)}"
+E       AssertionError: c4: outside tolerance: R3_rip:Dm=7.43>4.0, R3_rip:Qb=0.0989>0.06, R5_seawall:swmod=0.0684>0.04
+E       assert not ['R3_rip:Dm=7.43>4.0', 'R3_rip:Qb=0.0989>0.06', 'R5_seawall:swmod=0.0684>0.04']
+
+tests/test_outputs.py:204: AssertionError
+----------------------------- Captured stdout call -----------------------------
+c4: worst err/tol = 1.86
+___________________________ test_all_conditions_pass ___________________________
+
+    def test_all_conditions_pass():
+        """The overall verdict: every region of every condition within tolerance."""
+        r = result()
+        assert r["error"] is None, r["error"]
+        print("PASS" if r["ok"] else "FAIL", "worst err/tol = %.2f" % grade.margin(r["rep"]))
+>       assert r["ok"], "FAIL: " + "; ".join(grade.failures(r["rep"]))
+E       AssertionError: FAIL: c0:R3_rip:Dm=6.8>4.0; c0:R3_rip:Qb=0.0713>0.06; c0:R5_seawall:swmod=0.0966>0.04; c1:R3_rip:Dm=4.13>4.0; c1:R5_seawall:swmod=0.105>0.04; c2:R3_rip:Dm=4.99>4.0; c2:R5_seawall:swmod=0.1>0.04; c3:R2_south_bar:Qb=0.0745>0.06; c3:R3_rip:Dm=8.03>4.0; c3:R3_rip:Qb=0.126>0.06; c3:R4_central_bar:Qb=0.0749>0.06; c3:R5_seawall:swmod=0.0626>0.04; c4:R3_rip:Dm=7.43>4.0; c4:R3_rip:Qb=0.0989>0.06; c4:R5_seawall:swmod=0.0684>0.04
+E       assert False
+
+tests/test_outputs.py:212: AssertionError
+----------------------------- Captured stdout call -----------------------------
+FAIL worst err/tol = 2.63
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/test_outputs.py::test_predictor_exists
+PASSED tests/test_outputs.py::test_unseen_set_is_complete
+PASSED tests/test_verifier_regressions.py::test_grader_rejects_incomplete_or_corrupt_wet_fields[none]
+PASSED tests/test_verifier_regressions.py::test_grader_rejects_incomplete_or_corrupt_wet_fields[offshore_nan]
+PASSED tests/test_verifier_regressions.py::test_grader_rejects_incomplete_or_corrupt_wet_fields[qb_nan]
+PASSED tests/test_verifier_regressions.py::test_grader_rejects_incomplete_or_corrupt_wet_fields[offshore_inf]
+PASSED tests/test_verifier_regressions.py::test_grader_rejects_incomplete_or_corrupt_wet_fields[region_gap]
+PASSED tests/test_verifier_regressions.py::test_grader_rejects_incomplete_or_corrupt_wet_fields[nearshore]
+PASSED tests/test_verifier_regressions.py::test_shoreline_tolerance_cannot_repair_interior_holes[missing0-nan-True]
+PASSED tests/test_verifier_regressions.py::test_shoreline_tolerance_cannot_repair_interior_holes[missing1-nan-True]
+PASSED tests/test_verifier_regressions.py::test_shoreline_tolerance_cannot_repair_interior_holes[missing2-nan-False]
+PASSED tests/test_verifier_regressions.py::test_shoreline_tolerance_cannot_repair_interior_holes[missing3-nan-False]
+PASSED tests/test_verifier_regressions.py::test_shoreline_tolerance_cannot_repair_interior_holes[missing4-inf-False]
+PASSED tests/test_verifier_regressions.py::test_runtime_contract_uses_batches_of_at_most_three
+PASSED tests/test_verifier_regressions.py::test_runtime_watchdog_kills_an_overdue_predictor
+FAILED tests/test_outputs.py::test_unseen_condition[c0] - AssertionError: c0:...
+FAILED tests/test_outputs.py::test_unseen_condition[c1] - AssertionError: c1:...
+FAILED tests/test_outputs.py::test_unseen_condition[c2] - AssertionError: c2:...
+FAILED tests/test_outputs.py::test_unseen_condition[c3] - AssertionError: c3:...
+FAILED tests/test_outputs.py::test_unseen_condition[c4] - AssertionError: c4:...
+FAILED tests/test_outputs.py::test_all_conditions_pass - AssertionError: FAIL...
+=================== 6 failed, 15 passed in 89.98s (0:01:29) ====================
+reward: 0

@@ -1,0 +1,17 @@
+
+🔎 Checking task quality...
+  1/1 Mean: 0.000 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0:06:34 0:00:00❌ nearshore-wave-forecast: Check agent did not produce a valid result.
+Verifier output:
+missing result file: check-result.json
+Trial artifacts:
+/Users/dev/tb3-work/harbor-jobs/rubric/tb3-nearshore-wave-forecast/2026-10-26__2
+1-06-16/check-nearshore-wave-forecast__gi5maGQ
+Try again or use a more capable model (-m sonnet or -m opus).
+
+Report:
+/Users/dev/tb3-work/harbor-jobs/rubric/tb3-nearshore-wave-forecast/2026-10-26__2
+1-06-16/check_report.json
+Inspect results by running `harbor view
+/Users/dev/tb3-work/harbor-jobs/rubric/tb3-nearshore-wave-forecast`
+In the viewer, open a trial's Artifacts tab to read its check-result.json, and
+use ← / → to switch between tasks.

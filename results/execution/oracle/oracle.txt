@@ -1,0 +1,1 @@
+case 0: fields ['Cs', 'Dm', 'Hs', 'Qb', 'Tm', 'mwl', 'u'], shape (61, 101), wet cells 5682, max Hs 1.55 m

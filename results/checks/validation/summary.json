@@ -1,0 +1,86 @@
+{
+  "validation_kind": "deterministic; no LLM calls",
+  "date": "2026-10-26",
+  "setup": "macOS arm64, Docker 29.8 on Colima (8 CPU, 12 GiB), Harbor 0.23.1.dev202609170426",
+  "task_configuration": {
+    "artifacts": "/app, excluding __pycache__ and *.pyc (the agent's /app/data is transferred with the submission)",
+    "predictor_limits": "run as nobody from /app with OUT_DIR already created, in batches of at most three cases, 600 s per batch; no memory limit beyond the container's",
+    "verifier_environment": "[verifier.environment] allow_internet = false, 2 CPUs, 4096 MB memory, 10240 MB storage (Harbor 0.23.1 resolves it to no-network)"
+  },
+  "static_checks": {
+    "passed": 26,
+    "failed": 0,
+    "log": "../static/SUMMARY.txt"
+  },
+  "execution": {
+    "oracle": {
+      "reward": 1.0,
+      "tests": 21,
+      "passed": 21,
+      "failed": 0,
+      "worst_error_over_tolerance": 0.03
+    },
+    "nop": {
+      "reward": 0.0,
+      "tests": 21,
+      "passed": 15,
+      "failed": 6
+    }
+  },
+  "transferred_app_data": "In both runs the transferred /app/data was byte-identical to environment/data. Harbor empties /app in the verifier before uploading the transferred /app, so the copy baked into the verifier image is not used in a Harbor trial; it serves local re-grades of saved submissions that omit data/.",
+  "exploit_tests": {
+    "symlinks_to_truth": 0,
+    "background_process": 0,
+    "app_data_link_to_tests": 0
+  },
+  "saved_submissions": {
+    "opus-5.5/trial-1": {
+      "reward": 0,
+      "worst_error_over_tolerance": 2.63
+    },
+    "opus-5.5/trial-2": {
+      "reward": 0,
+      "worst_error_over_tolerance": 3.36
+    },
+    "opus-5.5/trial-3": {
+      "reward": 0,
+      "worst_error_over_tolerance": 4.43
+    },
+    "gpt-6-astra/trial-1": {
+      "reward": 0,
+      "worst_error_over_tolerance": 2.52
+    },
+    "gpt-6-astra/trial-2": {
+      "reward": 0,
+      "worst_error_over_tolerance": 1.69
+    },
+    "gpt-6-astra/trial-3": {
+      "reward": 0,
+      "worst_error_over_tolerance": 1.51
+    }
+  },
+  "saved_calibration_fits": {
+    "full_s0": {
+      "passed": true,
+      "worst_error_over_tolerance": 0.3
+    },
+    "full_s1": {
+      "passed": true,
+      "worst_error_over_tolerance": 0.29
+    },
+    "full_s2": {
+      "passed": true,
+      "worst_error_over_tolerance": 0.33
+    },
+    "full_s3": {
+      "passed": true,
+      "worst_error_over_tolerance": 0.88
+    }
+  },
+  "fixed_data_archive_sha256": "6d645a33c0c2abe617487bb7f24af046b5f4ecc75a76a1a684b2612dbc4a15a3",
+  "calibration_recheck": {
+    "script": "tools/nearshore-wave-forecast/calibration/recheck_current_grader.py",
+    "output": "calibration-recheck.json",
+    "result": "reference, ten +-2 % draws (0.19-0.78), four truth-free refits (0.29-0.88) and both breaking-law refits (0.25, 0.19) pass; five refits with a process left out and four shortcut models fail; reference with kappa scaled x0.6-x1.5 passes"
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "verifiable": {
+    "outcome": "pass",
+    "explanation": "The verifier runs deterministically: predict.py is executed on 5 fixed unseen conditions, outputs are compared region-by-region against fixed truth arrays with fixed tolerances in grade.py, and the pytest exit code deterministically sets reward 0/1 in test.sh. No LLM-as-judge or subjective grading is used."
+  },
+  "solvable": {
+    "outcome": "pass",
+    "explanation": "solution/predict.py + solution/sim.py implement the exact generative model with its true parameters; I ran it locally against tests/unseen_conditions.json through grade.py and it passes with worst err/tol = 0.028, consistent with the README's claimed 0.03. A working, passing solution exists."
+  },
+  "difficult": {
+    "outcome": "pass",
+    "explanation": "The task requires building/calibrating a nearshore spectral wave-propagation model (refraction, shoaling, depth-limited breaking, wave setup, rip currents, partial wall reflection, second-order crest correction) from only 24 sparse remote-sensing snapshots, then extrapolating to storms outside the observed range. This requires genuine coastal-engineering domain expertise well beyond an average undergraduate's reach."
+  },
+  "interesting": {
+    "outcome": "pass",
+    "explanation": "This mirrors a real coastal-engineering workflow: turning shore-based radar/stereo-video observations into a calibrated nearshore wave forecast model for design conditions, beach safety (rip currents), and structure-interaction (reflection) assessments. Coastal engineers and researchers would plausibly want this capability."
+  },
+  "outcome_verified": {
+    "outcome": "pass",
+    "explanation": "Grading only inspects predict.py's output arrays (Hs, Tm, Dm, Qb, mwl, Cs, u) against truth; it does not care which approach, libraries, or algorithm the agent uses as long as the output format and physical accuracy requirements are met."
+  },
+  "anti_cheat_robustness": {
+    "outcome": "pass",
+    "explanation": "Truth data and unseen conditions live only in the separate verifier image under /tests, readable only by root; the agent's /app is handed to the unprivileged `nobody` user for execution, with O_NOFOLLOW / regular-file checks when reading outputs. The agent image only ships stub predict.py and raw observation data; no shortcut (e.g., regression on the 24-snapshot record) passes per README's documented shortcut audit (regression/persistence score 7.75-241 vs tolerance)."
+  },
+  "task_security": {
+    "outcome": "pass",
+    "explanation": "No credential exfiltration, no obfuscated code, no network calls, no destructive operations. The Dockerfiles and test scripts perform only legitimate setup/build/grading actions scoped to /app and /tests."
+  },
+  "functional_verification": {
+    "outcome": "pass",
+    "explanation": "Verification runs the agent's actual predict.py as a subprocess and numerically compares its output arrays against ground truth with RMSE/NRMSE metrics region by region; no string/keyword matching against source code is used."
+  },
+  "deterministic_reproducible": {
+    "outcome": "pass",
+    "explanation": "numpy and scipy are pinned to exact versions (2.0.2 / 1.13.1) in both Dockerfiles; no live services are involved; the forward model and grading are deterministic numeric computations given fixed input data."
+  },
+  "essential_difficulty": {
+    "outcome": "pass",
+    "explanation": "Failures stem from missing or incorrect physical mechanisms (breaking, channel, rip current, reflection) as shown by the README's leave-one-out refit failures (>=2.07 err/tol), not from output-formatting edge cases; the output schema itself (field names/shape) is simple and clearly specified."
+  },
+  "test_instruction_alignment": {
+    "outcome": "pass",
+    "explanation": "The instruction specifies the deliverable (/app/predict.py with the exact CLI and output contract) and the grading approach (compared against truth region by region, tolerance-based); test_outputs.py and grade.py implement exactly this without introducing requirements beyond the instruction. test_verifier_regressions.py only hardens the verifier itself (self-tests), not new agent-facing requirements."
+  },
+  "novel": {
+    "outcome": "pass",
+    "explanation": "The simulator (sim.py) is a custom, author-written forward model generating a synthetic site with hidden mechanisms (migrated bar, rip channel, reflecting wall); no published dataset or model reproduces it, so memorized solutions from training data cannot shortcut this task."
+  },
+  "agentic": {
+    "outcome": "pass",
+    "explanation": "Solving requires exploring multiple data files (grid, chart, 24 observation snapshots, given conditions), iteratively building and calibrating a multi-stage physical model, and testing/debugging against the exploratory data \u2014 this cannot be done in a single zero-shot generation."
+  },
+  "reviewable": {
+    "outcome": "pass",
+    "explanation": "The reference solution derives truth via sim.py (not hardcoded values), and the README documents the calibration/validation methodology (perturbed-parameter draws, leave-one-mechanism-out refits, alternative breaking laws) in enough detail for a non-specialist reviewer to follow the validation logic, even without rederiving the physics themselves."
+  },
+  "instruction_concision": {
+    "outcome": "pass",
+    "explanation": "instruction.md is concise, uses absolute paths (/app/data, /app/predict.py), states the deliverable and grading approach without prescribing a particular modeling technique, and does not pad with headings/roleplay/fluff."
+  },
+  "solution_quality": {
+    "outcome": "pass",
+    "explanation": "The solution performs genuine computation (running the physical simulator sim.py with true parameters) rather than echoing a precomputed answer; sim.py (377 lines) is kept as its own file rather than inlined in solve.sh, and solve.sh itself is a short, readable script that copies files in and smoke-tests the example conditions."
+  },
+  "separate_verifier_configured": {
+    "outcome": "pass",
+    "explanation": "tests/Dockerfile bakes all verifier tooling (numpy, scipy, pytest, pytest-json-ctrf) and the truth/unseen data at build time; test.sh performs no runtime installs. The agent's own data/ directory is byte-identical between environment/data and the tar baked into tests/Dockerfile (verified via diff), satisfying the duplicated-asset byte-match requirement."
+  },
+  "environment_hygiene": {
+    "outcome": "pass",
+    "explanation": "environment/Dockerfile copies only data/ and the stub predict.py \u2014 no tests/ or solution/ leakage, no test-only dependencies (pytest, ctrf) baked into the agent image. tests/Dockerfile owns /tests and its test-only deps. Neither Dockerfile uses apt, so apt-hygiene rules are not triggered."
+  },
+  "structured_data_schema": {
+    "outcome": "pass",
+    "explanation": "instruction.md explicitly specifies the output contract (filenames case_<case>.npz, required array names Hs/Tm/Dm/Qb/mwl/Cs/u, shape 61x101, NaN-only-on-dry-cells rule) and the input fields are documented with units/conventions; example_new_conditions.json is explicitly marked as 'the input format for new conditions,' making it normative rather than just illustrative."
+  },
+  "typos": {
+    "outcome": "pass",
+    "explanation": "No typos were found in filenames, paths, commands, or variable names across instruction.md, task.toml, README.md, solution, and test files on inspection."
+  },
+  "difficulty_explanation_quality": {
+    "outcome": "pass",
+    "explanation": "The README's Difficulty explanation describes concretely why regression fails (unseen cases are out-of-record), names the three hidden site mechanisms that must be discovered from sparse local traces, explains why region-by-region grading defeats averaging shortcuts, confirms the data is synthetic/author-generated, and identifies the real-world role (coastal engineer) \u2014 covering both human and agent difficulty without resorting to pass-rate talk."
+  },
+  "solution_explanation_quality": {
+    "outcome": "pass",
+    "explanation": "The README's Solution explanation accurately summarizes the reference model's physical stages (refraction/shoaling, breaking, setup, rip current, reflection, nonlinear crest correction) matching sim.py's actual structure, and explains the calibration-validation strategy (perturbed draws, leave-one-mechanism-out refits, alternate breaking law) that would be needed without the ground truth."
+  },
+  "verification_explanation_quality": {
+    "outcome": "pass",
+    "explanation": "The README's Verification explanation matches test_outputs.py/grade.py precisely (nobody sandboxing, batches of 3, 600s limit, region definitions, shoreline-fill rule) and justifies the calibrated tolerances with concrete evidence: reference passes at 0.03, perturbed-truth draws pass at 0.19-0.78, truth-free refits pass at 0.29-0.88, and shortcuts/ablations fail at >=2.07, giving a well-calibrated basis for the thresholds rather than bare unexplained numbers."
+  },
+  "category_and_tags": {
+    "outcome": "pass",
+    "explanation": "category = 'Science', subcategory = 'Earth' fits a coastal/oceanographic wave-modelling task well; tags (coastal-engineering, nearshore-waves, spectral-wave-model, rip-currents, wave-reflection, model-calibration, extrapolation) are specific and descriptive rather than generic."
+  },
+  "task_name": {
+    "outcome": "pass",
+    "explanation": "The task name 'nearshore-wave-forecast' (from task.toml's task.name) is a concise, descriptive, lowercase-kebab-case slug within 3 words that clearly conveys the task's subject."
+  },
+  "resource_configuration": {
+    "outcome": "pass",
+    "explanation": "Verifier timeout (1800s) and agent timeout (7200s / 2h) are set deliberately away from defaults, appropriate for a physically-modeled scientific-computing task with a 10-minute-per-3-cases runtime budget; cpus=2/memory=4096MB are modest and match the lightweight (seconds-to-run) simulator rather than padding for raw compute difficulty."
+  },
+  "task_readme": {
+    "outcome": "pass",
+    "explanation": "README.md contains all required sections (Difficulty explanation, Solution explanation, Verification explanation, Relevant experience) plus a task metadata summary, without redundant duplication of the instruction or solution code."
+  },
+  "expert_time_estimate": {
+    "outcome": "pass",
+    "explanation": "expert_time_estimate_hours = 8.0, non-zero and plausible given the described expertise (building/calibrating a multi-mechanism nearshore wave model) and consistent with the agent timeout of 2 hours (expert time is longer, which is reasonable for a best-case-focused-human estimate vs. an agent)."
+  },
+  "task_toml_schema": {
+    "outcome": "pass",
+    "explanation": "task.toml only uses recognized fields: schema_version, artifacts, [task] (name/version/description/keywords/authors), [metadata] (author_name/email/github, category, subcategory, tags, expert_time_estimate_hours), [verifier] (timeout_sec, environment_mode, env, environment subsection), [agent] (timeout_sec), [environment] (build_timeout_sec, cpus, memory_mb, storage_mb, gpus, mcp_servers, env), [solution.env]. No invented fields found."
+  },
+  "no_extraneous_files": {
+    "outcome": "pass",
+    "explanation": "Every file traced back to a use: environment/data is COPY'd by environment/Dockerfile and referenced by the instruction; tests/fixed-data.tar.gz, grade.py, truth/, unseen_conditions.json are all used by tests/Dockerfile or test_outputs.py/test_verifier_regressions.py; solution/ files are used by solve.sh. No scratch, duplicate, or cruft files found in the tree."
+  },
+  "artifact_efficiency": {
+    "outcome": "pass",
+    "explanation": "The artifact spec ships the whole /app tree (~3.6MB, mostly fixed observation/data files that are also baked into tests/Dockerfile via fixed-data.tar.gz for local re-grades). This is a mild inefficiency since the data could in principle be excluded from the artifact and relied upon from the baked verifier copy, but 3.6MB per trial is small relative to the sizes (node_modules/venvs) this criterion is meant to catch, and the agent is explicitly allowed to add its own files anywhere under /app, so transferring the whole tree is a reasonable simplification rather than a meaningful cost driver."
+  },
+  "verifier_execution_isolation": {
+    "outcome": "pass",
+    "explanation": "test_outputs.py runs predict.py as unprivileged user `nobody` via preexec_fn (setgroups/setgid/setuid), with /logs/verifier chmod 700 before any agent code runs, root deriving the reward only from pytest's own exit code (written by root's test.sh), output captured to a temp file rather than a pipe, leftover processes under uid `nobody` killed after each run, and output files read with O_NOFOLLOW plus a regular-file check. The agent's predict.py is never imported in-process; it is only ever subprocessed."
+  },
+  "ctrf_reporting": {
+    "outcome": "pass",
+    "explanation": "test.sh invokes pytest with --ctrf /logs/verifier/ctrf.json directly, covering the per-test granularity of test_outputs.py and test_verifier_regressions.py."
+  },
+  "do_not_modify_enforced": {
+    "outcome": "not_applicable",
+    "explanation": "instruction.md contains no 'do not modify/delete/preserve' constraint on any concrete artifact; the agent is free to add files anywhere under /app, so this criterion does not apply."
+  },
+  "binary_reward": {
+    "outcome": "pass",
+    "explanation": "test.sh only ever writes 'echo 0' or 'echo 1' to /logs/verifier/reward.txt, gated strictly on pytest's exit code \u2014 no fractional, weighted, or clamped score is ever written."
+  }
+}
