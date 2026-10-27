@@ -1,6 +1,6 @@
 # Nearshore Wave Forecast — a TB3 task
 
-**Author:** Hamz Cohan (GitHub `JediDebugger`). Background: [About me](#about-me).
+**Author:** Hamz Cohan (GitHub `JediDebugger`): [About me](#about-me).
 
 **Task:** [`tasks/nearshore-wave-forecast/`](tasks/nearshore-wave-forecast/)
 
